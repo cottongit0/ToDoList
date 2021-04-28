@@ -1,0 +1,274 @@
+$back-darkColor: #060a1f;
+$bright-color: #fff;
+$accent-sky: #2196f3;
+$darker-sky: #127fd6;
+$accent-pink: #ff006a;
+$darker-pink: #ec0062;
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $bright-color;
+  &.darkMode {
+    background-color: $back-darkColor;
+    color: $back-darkColor;
+    #clock {
+      color: $bright-color;
+    }
+    .time {
+      .greeting {
+        color: $bright-color;
+      }
+    }
+  }
+}
+
+/* NAVBAR */
+#navbar {
+  position: relative;
+  z-index: 10;
+  .menu {
+    position: fixed;
+    background-color: $darker-sky;
+    height: 100%;
+    width: 48px;
+    color: $bright-color;
+    top: 0;
+    left: 0;
+    .menu__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 12px;
+      div {
+        margin: 8px;
+        cursor: pointer;
+      }
+      button {
+        position: absolute;
+        bottom: 0;
+        border: none;
+        background-color: transparent;
+        color: $bright-color;
+        margin-bottom: 8px;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+/* CLOCK */
+#clock {
+  h2 {
+    position: relative;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 0.8em;
+  }
+  // DATE
+  .date {
+    display: flex;
+    font-weight: 600;
+    font-size: 2em;
+    justify-content: center;
+    margin-bottom: 8px;
+    div {
+      padding: 8px;
+      text-transform: uppercase;
+    }
+  }
+
+  // TIME
+  .time {
+    display: flex;
+    color: $bright-color;
+    div {
+      position: relative;
+      margin: 0 5px;
+      -webkit-box-reflect: below 1px linear-gradient(transparent, #000);
+      span {
+        position: relative;
+        width: 100px;
+        height: 80px;
+        background-color: $accent-sky;
+        font-weight: 300;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3em;
+        z-index: 10;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+        &:nth-child(2) {
+          height: 30px;
+          font-size: 0.7em;
+          letter-spacing: 0.2em;
+          font-weight: 500;
+          z-index: 9;
+          box-shadow: none;
+          background-color: $darker-sky;
+          text-transform: uppercase;
+        }
+      }
+      &:last-child {
+        &.hide {
+          display: none;
+        }
+        span {
+          background-color: #fff;
+          &:nth-child(2) {
+            background-color: rgb(224, 227, 233);
+          }
+        }
+        color: rgb(77, 77, 77);
+      }
+      &:nth-last-child(2) {
+        span {
+          background-color: $accent-pink;
+          &:nth-child(2) {
+            background-color: $darker-pink;
+          }
+        }
+      }
+    }
+  }
+  .greeting {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-top: 140px;
+  }
+}
+
+/* TO DO LIST */
+#todo {
+  $todo-green: #6eb200;
+  $todo-blue: #4162f6;
+  display: none;
+  position: absolute;
+  .cotainer {
+    padding: 10px;
+    width: 380px;
+    margin: auto;
+    .header {
+      position: relative;
+      width: 380px;
+      height: 200px;
+      background-image: url(/images/toDoImg1.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      border-radius: 15px 15px 0 0;
+      h1 {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .clear {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        i {
+          font-size: 30px;
+          color: #fff;
+          &:hover {
+            cursor: pointer;
+            text-shadow: 1px 3px 5px rgb(114, 114, 114);
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    .content {
+      width: 380px;
+      height: 350px;
+      max-height: 350px;
+      background-color: #fff;
+      overflow: auto;
+      #list {
+        .item {
+          width: 380px;
+          height: 45px;
+          min-height: 45px;
+          position: relative;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          i {
+            &.far {
+              position: absolute;
+              font-size: 25px;
+              padding-left: 5px;
+              left: 15px;
+              top: 10px;
+              cursor: pointer;
+              &.fa-check-circle {
+                color: $todo-green;
+              }
+            }
+            &.delBtn {
+              position: absolute;
+              font-size: 25px;
+              right: 15px;
+              top: 10px;
+              &:hover {
+                color: red;
+              }
+            }
+          }
+          .text {
+            position: absolute;
+            font-size: 20px;
+            left: 60px;
+            top: 14px;
+            background-color: #fff;
+            max-width: 285px;
+            &.lineThrough {
+              text-decoration: line-through;
+              color: #aaa;
+            }
+          }
+        }
+      }
+      .add-item {
+        position: relative;
+        width: 360px;
+        height: 40px;
+        background-color: #fff;
+        padding: 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        position: fixed;
+        bottom: 166px;
+        i {
+          position: absolute;
+          font-size: 40px;
+          color: $todo-blue;
+        }
+        input {
+          position: absolute;
+          left: 60px;
+          height: 35px;
+          width: 300px;
+          background-color: transparent;
+          border: none;
+          font-size: 20px;
+          padding-left: 10px;
+          &::placeholder {
+            color: $todo-blue;
+          }
+        }
+      }
+    }
+  }
+}

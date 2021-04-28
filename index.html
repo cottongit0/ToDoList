@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="cottongit0">
+  <meta name="email" content="cottongit0@gmail.com">
+  <meta name="description" content="다양한 용도로 사용할 수 있는 투 두 리스트입니다. 네비게이션 바를 이용해 다양한 기능을 이용해보세요.">
+  <title>Mini - To Do List</title>
+  <!-- ICON -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="Sytle/main.scss">
+  <!-- JAVASCRIPT -->
+  <script src="/JavaScript/clock.js" defer></script>
+  <script src="/JavaScript/todo.js" defer></script>
+  <script src="/JavaScript/darkMode.js" defer></script>
+</head>
+<body class="popup">
+  <!-- NAVBAR -->
+  <section id="navbar">
+    <ul class="menu">
+      <li class="menu__item">
+        <div class="material-icons">double_arrow</div>
+      </li>
+      <li class="menu__item">
+        <div class="material-icons user">account_circle</div>
+      </li>
+      <li class="menu__item">
+        <div class="material-icons alarm">alarm</div>
+      </li>
+      <li class="menu__item">
+        <div class="material-icons music">volume_up</div>
+        <!-- <div class="material-icons">volume_off</div> -->
+      </li>
+      <li class="menu__item">
+        <div class="material-icons list">note_alt</div>
+      </li>
+      <li class="menu__item">
+        <button for="checkbox" class="material-icons dark-toggle">dark_mode</button>
+      </li>
+    </ul>
+  </section>
+
+  <!-- CLOCK -->
+  <section id="clock">
+    <h2>THE TIME IS NOW</h2>
+    <div class="date">
+      <div class="year"></div>
+      <div class="month">00</div>
+      <div class="day">00</div>
+      <div class="week"></div>
+    </div>
+    <div class="time">
+      <div><span class="hour">00</span><span>HOURS</span></div>
+      <div><span class="minutes">00</span><span>MINUTES</span></div>
+      <div><span class="seconds">00</span><span>SECONDS</span></div>
+      <div class="ampm-container"><span class="AMPM">AM</span><span>AMPM</span></div>
+    </div>
+    <div class="greeting"></div>
+    <!-- AM/PM 기능 구현 -->
+    <button id="ampmBtn">AMPM</button>
+  </section>
+
+  <!-- TODOLIST -->
+  <section id="todo">
+    <div class="cotainer">
+      <div class="header">
+        <h1>To Do List</h1>
+        <div class="clear">
+          <i class="fas fa-redo-alt"></i>
+        </div>
+      </div>
+
+      <div class="content">
+        <ul id="list">
+        </ul>
+
+        <div class="add-item">
+          <i class="fas fa-plus-circle"></i>
+          <input type="text" id="item" placeholder="오늘 해야할 일을 입력해보세요.">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</body>
+</html>

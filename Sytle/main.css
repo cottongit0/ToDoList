@@ -1,0 +1,176 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+body.darkmode {
+  background-color: #060a1f;
+  color: #060a1f;
+}
+
+body.darkmode #clock {
+  color: #fff;
+}
+
+body.darkmode .time .greeting {
+  color: #fff;
+}
+
+/* NAVBAR */
+#navbar {
+  position: relative;
+  z-index: 10;
+}
+
+#navbar .menu {
+  position: fixed;
+  background-color: #127fd6;
+  height: 100%;
+  width: 48px;
+  color: #fff;
+  top: 0;
+  left: 0;
+}
+
+#navbar .menu .menu__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 12px;
+}
+
+#navbar .menu .menu__item div {
+  margin: 8px;
+  cursor: pointer;
+}
+
+#navbar .menu .menu__item button {
+  position: absolute;
+  bottom: 0;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+#navbar .menu .menu__item button:focus {
+  outline: none;
+}
+
+/* CLOCK */
+#clock h2 {
+  position: relative;
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 0.8em;
+}
+
+#clock .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 600;
+  font-size: 2em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 8px;
+}
+
+#clock .date div {
+  padding: 8px;
+  text-transform: uppercase;
+}
+
+#clock .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+}
+
+#clock .time div {
+  position: relative;
+  margin: 0 5px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #000);
+}
+
+#clock .time div span {
+  position: relative;
+  width: 100px;
+  height: 80px;
+  background-color: #2196f3;
+  font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 3em;
+  z-index: 10;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+#clock .time div span:nth-child(2) {
+  height: 30px;
+  font-size: 0.7em;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  z-index: 9;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #127fd6;
+  text-transform: uppercase;
+}
+
+#clock .time div:last-child span {
+  background-color: #ff006a;
+}
+
+#clock .time div:last-child span:nth-child(2) {
+  background-color: #ec0062;
+}
+
+#clock .greeting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-top: 140px;
+}
+
+/* TO DO LIST */
+#todo .container .content .fa-check-circle {
+  color: #73d18c;
+}
+/*# sourceMappingURL=main.css.map */
