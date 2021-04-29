@@ -281,3 +281,80 @@ body {
     }
   }
 }
+
+/* ALARM */
+#alarm {
+  display: none;
+  position: absolute;
+  .container {
+    background-color: $accent-sky;
+    width: 350px;
+    height: 350px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 24px;
+    }
+    h1 {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      top: 50px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    #ampm-select {
+      height: 126px;
+      option {
+      }
+    }
+    #hours {
+      display: flex;
+      flex-direction: column;
+      width: 120px;
+      .alarm-hours {
+        text-align: center;
+        height: 50px;
+        font-size: 24px;
+      }
+      button {
+        height: 35px;
+        .hours-increase {
+        }
+        .hours-decrese {
+        }
+      }
+    }
+    #minutes {
+      display: flex;
+      flex-direction: column;
+      width: 120px;
+      .alarm-minutes {
+        font-size: 24px;
+        text-align: center;
+        height: 50px;
+      }
+      button {
+        height: 35px;
+        .minutes-increase {
+        }
+        .minutes-decrese {
+        }
+      }
+    }
+    #save-alarm {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 8px;
+    }
+  }
+}
