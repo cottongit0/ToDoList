@@ -1,7 +1,6 @@
 "use strict";
 
 const section = document.getElementById("todo");
-const clear = section.querySelector(".clear");
 const list = section.querySelector("#list");
 const input = section.querySelector("input");
 const item = section.querySelector("#item");
@@ -10,6 +9,13 @@ const delBtn = section.querySelector(".delBtn");
 const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle";
 const LINE_THROUGE = "lineThrough";
+
+document.querySelector(".list").addEventListener("click", () => {
+  section.style.display = "flex";
+});
+document.querySelector(".fas.fa-times").addEventListener("click", () => {
+  section.style.display = "none";
+});
 
 let LIST, id;
 
@@ -29,12 +35,6 @@ function loadList(array) {
     addToDo(item.name, item.id, item.done, item.trash);
   });
 }
-
-// ALL CLEAR
-clear.addEventListener("click", () => {
-  localStorage.clear();
-  location.reload();
-});
 
 // TODO
 function addToDo(toDo, id, done, trash) {

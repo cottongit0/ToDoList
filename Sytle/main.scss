@@ -183,20 +183,18 @@ body {
         font-size: 24px;
         font-weight: 700;
       }
-      .clear {
+      .fa-times {
         width: 30px;
         height: 30px;
         position: absolute;
         right: 20px;
         top: 20px;
-        i {
-          font-size: 30px;
-          color: $bright-color;
-          &:hover {
-            cursor: pointer;
-            text-shadow: 1px 3px 5px rgb(114, 114, 114);
-            transform: rotate(45deg);
-          }
+        font-size: 30px;
+        color: $bright-color;
+        &:hover {
+          cursor: pointer;
+          text-shadow: 1px 3px 5px rgb(83, 83, 83);
+          transition: 300ms;
         }
       }
     }
@@ -274,6 +272,9 @@ body {
           padding-left: 10px;
           &::placeholder {
             color: $todo-blue;
+          }
+          &:focus {
+            outline: none;
           }
         }
       }
