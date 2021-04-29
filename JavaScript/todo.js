@@ -1,20 +1,20 @@
 "use strict";
 
-const section = document.getElementById("todo");
-const list = section.querySelector("#list");
-const input = section.querySelector("input");
-const item = section.querySelector("#item");
-const delBtn = section.querySelector(".delBtn");
+const todoSection = document.getElementById("todo");
+const list = todoSection.querySelector("#list");
+const input = todoSection.querySelector("input");
+const item = todoSection.querySelector("#item");
+const delBtn = todoSection.querySelector(".delBtn");
 
 const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle";
 const LINE_THROUGE = "lineThrough";
 
-document.querySelector(".list").addEventListener("click", () => {
-  section.style.display = "flex";
+document.querySelector(".material-icons.list").addEventListener("click", () => {
+  todoSection.style.display = "flex";
 });
-document.querySelector(".fas.fa-times").addEventListener("click", () => {
-  section.style.display = "none";
+todoSection.querySelector(".fas.fa-times").addEventListener("click", () => {
+  todoSection.style.display = "none";
 });
 
 let LIST, id;
