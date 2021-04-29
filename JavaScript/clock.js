@@ -61,9 +61,9 @@ const disableAmPm = () => {
 
 const ampmContainer = document.querySelector(".ampm-container");
 if (AMPM_MODE === "enabled") {
-  ampmContainer.classList.add("hide");
-} else {
   ampmContainer.classList.remove("hide");
+} else {
+  ampmContainer.classList.add("hide");
 }
 
 ampmModeBtn.addEventListener("click", () => {
