@@ -1,9 +1,11 @@
 $back-darkColor: #060a1f;
 $bright-color: #fff;
+$grey-color: #4d4d4d;
 $accent-sky: #2196f3;
 $darker-sky: #127fd6;
 $accent-pink: #ff006a;
 $darker-pink: #ec0062;
+$light-pink: #fca9a9;
 
 body {
   display: flex;
@@ -20,6 +22,14 @@ body {
     .time {
       .greeting {
         color: $bright-color;
+      }
+    }
+    #player {
+      .music-container {
+        box-shadow: 0 20px 20px 0 rgba($color: #90abc2, $alpha: 1);
+      }
+      .music-info {
+        background-color: rgba(255, 255, 255, 0.5);
       }
     }
   }
@@ -89,8 +99,6 @@ body {
 
   // TIME
   .time {
-    $grey-color: #4d4d4d;
-
     display: flex;
     color: $bright-color;
     div {
@@ -282,79 +290,120 @@ body {
   }
 }
 
-/* ALARM */
-#alarm {
-  display: none;
+/* MUSIC PLAYER */
+#player {
   position: absolute;
-  .container {
-    background-color: $accent-sky;
-    width: 350px;
-    height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 30px;
+  right: 20px;
+  .music-container {
+    background-color: $bright-color;
+    border-radius: 15px;
+    box-shadow: 0 20px 20px 0 rgba($color: #fca9a9, $alpha: 1);
+    display: flex;
+    padding: 20px 30px;
     position: relative;
+    z-index: 10;
+    &.play {
+      .music-info {
+        opacity: 1;
+        transform: translateY(-100%);
+      }
+      .img-container #cover {
+        animation-play-state: running;
+      }
+    }
+    .music-info {
+      background-color: rgba(189, 189, 189, 0.5);
+      border-radius: 15px 15px 0 0;
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: 50%;
+      padding: 10px 10px 10px 150px;
+      opacity: 0;
+      transform: translateY(0%);
+      transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+      z-index: 0;
+      #title {
+        font-weight: 700;
+        color: $grey-color;
+      }
+      .progress-container {
+        background: $bright-color;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px 0;
+        height: 4px;
+        width: 100%;
+        .progress {
+          background-color: #fe8daa;
+          border-radius: 5px;
+          height: 100%;
+          width: 0%;
+          transition: width 0.1s linear;
+        }
+      }
+    }
+    .img-container {
+      position: relative;
+      width: 110px;
+      &::after {
+        content: "";
+        background-color: $bright-color;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        transform: translate(-50%, 50%);
+      }
+      #cover {
+        border-radius: 50%;
+        object-fit: cover;
+        height: 110px;
+        width: inherit;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        animation: rotate 3s linear infinite;
+        animation-play-state: paused;
+      }
+    }
+  }
+  .navigation {
     display: flex;
     align-items: center;
     justify-content: center;
-    i {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 24px;
-    }
-    h1 {
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      top: 50px;
-      font-size: 24px;
-      font-weight: 700;
-    }
-    #ampm-select {
-      height: 126px;
-      option {
+    z-index: 1;
+    .action-btn {
+      background-color: #fff;
+      border: 0;
+      color: #dfdbdf;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 10px;
+      margin: 0 20px;
+      &:focus {
+        outline: none;
+      }
+      &.action-btn-big {
+        color: #cdc2d0;
+        font-size: 30px;
       }
     }
-    #hours {
-      display: flex;
-      flex-direction: column;
-      width: 120px;
-      .alarm-hours {
-        text-align: center;
-        height: 50px;
-        font-size: 24px;
-      }
-      button {
-        height: 35px;
-        .hours-increase {
-        }
-        .hours-decrese {
-        }
-      }
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
     }
-    #minutes {
-      display: flex;
-      flex-direction: column;
-      width: 120px;
-      .alarm-minutes {
-        font-size: 24px;
-        text-align: center;
-        height: 50px;
-      }
-      button {
-        height: 35px;
-        .minutes-increase {
-        }
-        .minutes-decrese {
-        }
-      }
-    }
-    #save-alarm {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      font-size: 18px;
-      font-weight: 600;
-      padding: 8px;
+
+    to {
+      transform: rotate(360deg);
     }
   }
 }

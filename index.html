@@ -15,10 +15,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" />
   <link rel="stylesheet" href="Sytle/main.scss">
   <!-- JAVASCRIPT -->
-  <script src="/JavaScript/clock.js" defer></script>
-  <script src="/JavaScript/todo.js" defer></script>
-  <script src="/JavaScript/darkMode.js" defer></script>
-  <script src="/JavaScript/alarm.js" defer></script>
+  <script src="./JavaScript/clock.js" defer></script>
+  <script src="./JavaScript/todo.js" defer></script>
+  <script src="./JavaScript/darkMode.js" defer></script>
+  <script src="./JavaScript/music.js" defer></script>
 </head>
 <body class="popup">
   <!-- NAVBAR -->
@@ -29,9 +29,6 @@
       </li>
       <li class="menu__item">
         <div class="material-icons user">account_circle</div>
-      </li>
-      <li class="menu__item">
-        <div class="material-icons alarm">alarm</div>
       </li>
       <li class="menu__item">
         <div class="material-icons music">volume_up</div>
@@ -66,31 +63,6 @@
     <!-- AM/PM 기능 구현 -->
   </section>
 
-  <!-- ALARM -->
-  <section id="alarm">
-    <div class="container">
-      <i class="fas fa-times"></i>
-      <h1>알람설정</h1>
-      <select id="ampm-select">
-        <option class="optionAM" value="AM">오전</option>
-        <option class="optionPM"value="PM">오후</option>
-      </select>
-      <div id="hours">
-        <button class="hours-increase" type="button">+</button>
-        <input type="text" class="alarm-hours">
-        <button class="hours-decrease" type="button">-</button>
-        <!-- <span>시</span> -->
-      </div>
-      <div id="minutes">
-        <button class="minutes-increase" type="button">+</button>
-        <input type="text" class="alarm-minutes">
-        <button class="minutes-decrease" type="button">-</button>
-        <!-- <span>분</span> -->
-      </div>
-      <button id="save-alarm">저장하기</button>
-    </div>
-  </section>
-
   <!-- TODOLIST -->
   <section id="todo">
     <div class="cotainer">
@@ -111,6 +83,33 @@
     </div>
   </section>
 
+  <!-- MUSIC PLAYER -->
+  <section id="player">
+    <div class="music-container play" id="music-container">
+      <div class="music-info">
+        <h4 id="title">음악이름</h4>
+        <div class="progress-container" id="progress-container">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
 
+      <audio src="" id="audio"></audio>
+
+      <div class="img-container">
+        <img src="" alt="music-cover" id="cover" />
+      </div>
+      <div class="navigation">
+        <button id="prev" class="action-btn">
+          <i class="fas fa-backward"></i>
+        </button>
+        <button id="play" class="action-btn action-btn-big">
+          <i class="fas fa-play"></i>
+        </button>
+        <button id="next" class="action-btn">
+          <i class="fas fa-forward"></i>
+        </button>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
