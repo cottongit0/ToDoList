@@ -38,6 +38,11 @@ body {
         .music-time {
           color: $darker-sky;
         }
+        .progressBar {
+          .progress {
+            background-color: $accent-sky;
+          }
+        }
       }
       .player-controler {
         background-color: rgb(15, 15, 26);
@@ -343,7 +348,7 @@ body {
   }
 }
 
-/* PLAYER */
+/* MUSIC PLAYER */
 #player {
   $container-pink: #f5bfd8;
   $button-pink: #f098c3;
