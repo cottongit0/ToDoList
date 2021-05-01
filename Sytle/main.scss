@@ -186,6 +186,38 @@ body {
   }
 }
 
+/* USER */
+#user {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  .container {
+    position: relative;
+    background-color: $bright-color;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 150px;
+    border: 1px solid;
+    border-radius: 4px;
+    text-align: center;
+    .input-container {
+      margin: auto;
+      h2 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+    }
+    .close {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      cursor: pointer;
+    }
+  }
+}
+
 /* TO DO LIST */
 #todo {
   $todo-green: #6eb200;
