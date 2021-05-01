@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
 $back-darkColor: #060a1f;
 $bright-color: #fff;
 $grey-color: #4d4d4d;
@@ -25,12 +27,6 @@ body {
       }
     }
     #player {
-      .music-container {
-        box-shadow: 0 20px 20px 0 rgba($color: #90abc2, $alpha: 1);
-      }
-      .music-info {
-        background-color: rgba(255, 255, 255, 0.5);
-      }
     }
   }
 }
@@ -290,120 +286,181 @@ body {
   }
 }
 
-/* MUSIC PLAYER */
+/* PLAYER */
 #player {
   position: absolute;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  bottom: 30px;
-  right: 20px;
+  flex-direction: column;
+  bottom: 20px;
   .music-container {
-    background-color: $bright-color;
-    border-radius: 15px;
-    box-shadow: 0 20px 20px 0 rgba($color: #fca9a9, $alpha: 1);
+    background-color: rgba($color: #f5bfd8, $alpha: 0.7);
+    border-radius: 15px 15px 0 0;
     display: flex;
-    padding: 20px 30px;
-    position: relative;
-    z-index: 10;
-    &.play {
-      .music-info {
-        opacity: 1;
-        transform: translateY(-100%);
-      }
-      .img-container #cover {
-        animation-play-state: running;
-      }
-    }
+    height: 60px;
+    width: 325px;
+    padding: 12px;
+    transform: translate3d(0, 100%, 0);
+    transition: all 1s ease;
+    justify-content: flex-end;
     .music-info {
-      background-color: rgba(189, 189, 189, 0.5);
-      border-radius: 15px 15px 0 0;
-      position: absolute;
-      top: 0;
-      left: 20px;
-      width: 50%;
-      padding: 10px 10px 10px 150px;
-      opacity: 0;
-      transform: translateY(0%);
-      transition: transform 0.3s ease-in, opacity 0.3s ease-in;
-      z-index: 0;
-      #title {
-        font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 180px;
+      .title {
         color: $grey-color;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 4px;
       }
-      .progress-container {
-        background: $bright-color;
-        border-radius: 5px;
+      .artist {
+        color: #87848f;
+        font-size: 0.7rem;
+        margin-bottom: 10px;
+      }
+      .progressBar {
+        position: relative;
+        background-color: $bright-color;
         cursor: pointer;
-        margin: 10px 0;
-        height: 4px;
+        display: flex;
+        flex: 10;
+        flex-basis: 100%;
+        max-height: 5px;
+        position: relative;
+        transition: height 0.3s;
         width: 100%;
+        border-radius: 15px;
         .progress {
-          background-color: #fe8daa;
-          border-radius: 5px;
-          height: 100%;
-          width: 0%;
-          transition: width 0.1s linear;
+          background-color: $light-pink;
+          flex: 0;
+          flex-basis: 0%;
+          width: 50%;
+          border-radius: 15px;
         }
       }
     }
-    .img-container {
-      position: relative;
-      width: 110px;
-      &::after {
-        content: "";
-        background-color: $bright-color;
-        border-radius: 50%;
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        width: 20px;
-        height: 20px;
-        transform: translate(-50%, 50%);
-      }
-      #cover {
-        border-radius: 50%;
-        object-fit: cover;
-        height: 110px;
-        width: inherit;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        animation: rotate 3s linear infinite;
-        animation-play-state: paused;
-      }
+    .music-time {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.4em;
+      padding-top: 4px;
+    }
+    &.playing {
+      transform: translate3d(0, 0, 0);
+      transition: all 1s ease;
     }
   }
-  .navigation {
+  .player-controler {
+    position: relative;
+    background-color: $bright-color;
+    border-radius: 15px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    .action-btn {
-      background-color: #fff;
-      border: 0;
-      color: #dfdbdf;
-      font-size: 20px;
+    justify-content: flex-end;
+    width: 380px;
+    padding: 10px;
+    box-shadow: 0px 15px 20px 0px rgb(83, 83, 83);
+    button {
+      height: 80px;
+      width: 80px;
       cursor: pointer;
-      padding: 10px;
-      margin: 0 20px;
-      &:focus {
-        outline: none;
+      border: none;
+      background-color: transparent;
+      color: #dfdbe0;
+      margin: 0 5px;
+      border-radius: 15px;
+      position: relative;
+      &:hover,
+      &.playing {
+        background-color: #e0dee1;
+        color: $bright-color;
       }
-      &.action-btn-big {
-        color: #cdc2d0;
-        font-size: 30px;
+      &.play {
+        span {
+          &.pause {
+            background-color: white;
+            position: absolute;
+            top: 23px;
+            height: 34px;
+            width: 10px;
+            display: block;
+            border-radius: 3px;
+            opacity: 0;
+            transition: all 0.5s ease;
+            &.left {
+              left: 0;
+            }
+            &.right {
+              right: 0;
+            }
+          }
+          i {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+          }
+          &.playing i {
+            opacity: 0;
+            transition: all 0.5s ease;
+          }
+        }
+        &.player {
+          span {
+            &.pause.left {
+              left: 25px;
+              opacity: 1;
+              transition: left 0.5s ease, opacity 0.8s ease;
+            }
+            &.pause.right {
+              right: 25px;
+              opacity: 1;
+              transition: right 0.5s ease, opacity 0.8s ease;
+            }
+          }
+        }
       }
     }
-  }
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
+    .cover {
+      height: 130px;
+      width: 130px;
+      position: absolute;
+      top: -40px;
+      left: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.spin {
+        animation: spin 5s linear infinite;
+      }
+      .cover__img {
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+        transition: all 1s ease;
+        background-image: url(https://www.bensound.com/bensound-img/ukulele.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.scale {
+          transform: scale(1.17);
+          transition: all 1s ease;
+        }
+        &::after {
+          content: "";
+          background-color: white;
+          height: 25px;
+          width: 25px;
+          border-radius: 50%;
+          transition: all 1s ease;
+        }
+      }
     }
-
-    to {
-      transform: rotate(360deg);
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
     }
   }
 }

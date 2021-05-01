@@ -1,6 +1,6 @@
 "use strict";
 
-// CLCOK - DATE
+// 현재 날짜
 function onLoadDate() {
   const date = document.querySelector(".date");
   let year = date.querySelector(".year");
@@ -21,7 +21,7 @@ function onLoadDate() {
   week.innerHTML = weekends[w];
 }
 
-// CLODK - TIME
+// 현재 시각
 function onLoadTime() {
   const time = document.querySelector(".time");
   let hour = time.querySelector(".hour");
@@ -33,6 +33,7 @@ function onLoadTime() {
   let m = getClock.getMinutes();
   let s = getClock.getSeconds();
 
+  // AMPM 모드 설정 시, 작동
   let ampm = document.querySelector(".AMPM");
   if (AMPM_MODE === "enabled") {
     if (h >= 12) {
@@ -48,7 +49,7 @@ function onLoadTime() {
   seconds.innerHTML = s < 10 ? `0${s}` : s;
 }
 
-// AMPM MODE
+// AMPM 모드. 로컬저장소
 let AMPM_MODE = localStorage.getItem("AMPM-MODE");
 const ampmModeBtn = document.querySelector("#ampmBtn");
 

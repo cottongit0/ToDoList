@@ -85,31 +85,37 @@
 
   <!-- MUSIC PLAYER -->
   <section id="player">
-    <div class="music-container play" id="music-container">
+    <audio class="player__audio viewer">
+      <source src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" type="audio/mpeg" data-trackid="1">
+    </audio>
+
+    <div class="music-container">
       <div class="music-info">
-        <h4 id="title">음악이름</h4>
-        <div class="progress-container" id="progress-container">
-          <div class="progress" id="progress"></div>
+        <div class="title">Ukulele</div>
+        <div class="artist">Bensound</div>
+        <div class="progressBar">
+          <div class="progress"></div>
+        </div>
+        <div class="music-time">
+          <div class="current-time">0:00</div>
+          <div class="duration-time">0:00</div>
         </div>
       </div>
-
-      <audio src="" id="audio"></audio>
-
-      <div class="img-container">
-        <img src="" alt="music-cover" id="cover" />
-      </div>
-      <div class="navigation">
-        <button id="prev" class="action-btn">
-          <i class="fas fa-backward"></i>
-        </button>
-        <button id="play" class="action-btn action-btn-big">
-          <i class="fas fa-play"></i>
-        </button>
-        <button id="next" class="action-btn">
-          <i class="fas fa-forward"></i>
-        </button>
-      </div>
     </div>
+
+    <div class="player-controler">
+      <div class="cover">
+        <div class="cover__img"></div>
+      </div>
+      <button class="prev"><i class="fas fa-backward fa-2x"></i></button>
+      <button class="play">
+        <i class="fas fa-play fa-3x"></i>
+        <span class="pause left"></span>
+        <span class="pause right"></span>
+      </button>
+      <button class="next"><i class="fas fa-forward fa-2x"></i></button>
+    </div>
+
   </section>
 </body>
 </html>

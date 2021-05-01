@@ -3,6 +3,7 @@
 let DARK_MODE = localStorage.getItem("DARK-MODE");
 const modeBtn = document.querySelector(".dark-toggle");
 
+// 다크 모드 설정
 const enableDarkMode = () => {
   document.body.classList.add("darkMode");
   localStorage.setItem("DARK-MODE", "enabled");

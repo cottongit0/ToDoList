@@ -10,6 +10,7 @@ const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle";
 const LINE_THROUGE = "lineThrough";
 
+// 투 두 리스트 팝업
 document.querySelector(".material-icons.list").addEventListener("click", () => {
   todoSection.style.display = "flex";
 });
@@ -21,7 +22,7 @@ let LIST, id;
 
 let data = localStorage.getItem("TODO");
 
-// LOCALSTORAGE
+// 투 두 리스트 로컬 저장
 if (data) {
   LIST = JSON.parse(data);
   id = LIST.length;
@@ -36,7 +37,7 @@ function loadList(array) {
   });
 }
 
-// TODO
+// 투 두 리스트 출력
 function addToDo(toDo, id, done, trash) {
   if (trash) {
     return;
@@ -56,7 +57,7 @@ function addToDo(toDo, id, done, trash) {
   list.insertAdjacentHTML(position, item);
 }
 
-// Input to do list
+// 투 두 리스트 입력
 item.addEventListener("keyup", (event) => {
   if (event.keyCode == 13) {
     const toDo = input.value;
@@ -77,16 +78,12 @@ item.addEventListener("keyup", (event) => {
   }
 });
 
-function abc() {
-  console.log("adfs");
-}
-
-// SAVE LOACALSTORAGE
+// 로컬 저장소에 저장
 function saveToDo() {
   localStorage.setItem("TODO", JSON.stringify(LIST));
 }
 
-// COMPLETE
+// 투 두 리스트 완료 시, 체크 기능
 function completeToDo(element) {
   element.classList.toggle(CHECK);
   element.classList.toggle(UNCHECK);
@@ -95,7 +92,7 @@ function completeToDo(element) {
   LIST[element.id].done = LIST[element.id].done ? false : true;
 }
 
-// REMOVE
+// 투 두 리스트 제거 기능
 function removeToDo(event) {
   const btn = event.target;
   const li = btn.parentNode;
