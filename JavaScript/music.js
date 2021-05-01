@@ -1,3 +1,5 @@
+"use strict";
+
 // 음악 트랙
 const tracks = [
   {
@@ -229,19 +231,21 @@ progressBar.addEventListener("mouseup", () => (mousedown = false));
 const current = document.querySelector(".current-time");
 const duration = document.querySelector(".duration-time");
 
-const musicTime = setInterval(() => {
-  let curMin = Math.floor(audio.currentTime / 60);
-  let curSec = Math.floor(audio.currentTime % 60);
-  let durMin = Math.floor(audio.duration / 60);
-  let durSec = Math.floor(audio.duration % 60);
+function musicTime() {
+  setInterval(() => {
+    let curMin = Math.floor(audio.currentTime / 60);
+    let curSec = Math.floor(audio.currentTime % 60);
+    let durMin = Math.floor(audio.duration / 60);
+    let durSec = Math.floor(audio.duration % 60);
 
-  current.innerText = `${curMin < 10 ? "0" + curMin : curMin}:${
-    curSec < 10 ? "0" + curSec : curSec
-  }`;
+    current.innerText = `${curMin < 10 ? "0" + curMin : curMin}:${
+      curSec < 10 ? "0" + curSec : curSec
+    }`;
 
-  duration.innerText = `${durMin < 10 ? "0" + durMin : durMin}:${
-    durSec < 10 ? "0" + durSec : durSec
-  }`;
-}, 1000);
+    duration.innerText = `${durMin < 10 ? "0" + durMin : durMin}:${
+      durSec < 10 ? "0" + durSec : durSec
+    }`;
+  }, 1000);
+}
 
 audio.addEventListener("play", musicTime);

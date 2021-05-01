@@ -51,40 +51,257 @@ body {
       }
     }
   }
+}
+.popup {
+  z-index: 10;
+}
 
-  .popup {
-    z-index: 10;
+/* NAVBAR */
+#navbar {
+  position: relative;
+  z-index: 10;
+  .menu {
+    position: fixed;
+    background-color: $darker-sky;
+    height: 100%;
+    width: 48px;
+    color: $bright-color;
+    top: 0;
+    left: 0;
+    .menu__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 12px;
+      div {
+        margin: 8px;
+        cursor: pointer;
+      }
+      button {
+        position: absolute;
+        bottom: 0;
+        border: none;
+        background-color: transparent;
+        color: $bright-color;
+        margin-bottom: 8px;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+/* CLOCK */
+#clock {
+  h2 {
+    position: relative;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 0.8em;
+  }
+  // DATE
+  .date {
+    display: flex;
+    font-weight: 600;
+    font-size: 2em;
+    justify-content: center;
+    margin-bottom: 8px;
+    div {
+      padding: 8px;
+      text-transform: uppercase;
+    }
   }
 
-  /* NAVBAR */
-  #navbar {
-    position: relative;
-    z-index: 10;
-    .menu {
-      position: fixed;
-      background-color: $darker-sky;
-      height: 100%;
-      width: 48px;
-      color: $bright-color;
-      top: 0;
-      left: 0;
-      .menu__item {
+  // TIME
+  .time {
+    display: flex;
+    color: $bright-color;
+    div {
+      position: relative;
+      margin: 0 5px;
+      -webkit-box-reflect: below 1px linear-gradient(transparent, #000);
+      span {
+        position: relative;
+        width: 100px;
+        height: 80px;
+        background-color: $accent-sky;
+        font-weight: 300;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        margin-top: 12px;
-        div {
-          margin: 8px;
-          cursor: pointer;
+        font-size: 3em;
+        z-index: 10;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+        &:nth-child(2) {
+          height: 30px;
+          font-size: 0.7em;
+          letter-spacing: 0.2em;
+          font-weight: 500;
+          z-index: 9;
+          box-shadow: none;
+          background-color: $darker-sky;
+          text-transform: uppercase;
         }
-        button {
-          position: absolute;
-          bottom: 0;
-          border: none;
-          background-color: transparent;
-          color: $bright-color;
-          margin-bottom: 8px;
+      }
+      &:nth-last-child(2) {
+        &.hide {
+          display: none;
+        }
+        span {
+          background-color: $bright-color;
+          &:nth-child(2) {
+            background-color: rgb(224, 227, 233);
+          }
+        }
+        color: $grey-color;
+      }
+      &:nth-child(3) {
+        span {
+          background-color: $accent-pink;
+          &:nth-child(2) {
+            background-color: $darker-pink;
+          }
+        }
+      }
+    }
+    button {
+      margin-left: 8px;
+      border-radius: 4px;
+      border: solid 1px #ccc;
+      -webkit-box-reflect: below 1px linear-gradient(transparent, #000);
+    }
+  }
+  .greeting {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-top: 140px;
+  }
+}
+
+/* TO DO LIST */
+#todo {
+  $todo-green: #6eb200;
+  $todo-blue: #4162f6;
+  display: none;
+  position: absolute;
+  .cotainer {
+    padding: 10px;
+    width: 380px;
+    margin: auto;
+    .header {
+      position: relative;
+      width: 380px;
+      height: 200px;
+      background-image: url(/images/toDoImg1.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      border-radius: 15px 15px 0 0;
+      h1 {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: $bright-color;
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .fa-times {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 30px;
+        color: $bright-color;
+        &:hover {
           cursor: pointer;
+          text-shadow: 1px 3px 5px rgb(83, 83, 83);
+          transition: 300ms;
+        }
+      }
+    }
+    .content {
+      width: 380px;
+      height: 350px;
+      max-height: 350px;
+      background-color: $bright-color;
+      overflow: auto;
+      #list {
+        .item {
+          width: 380px;
+          height: 45px;
+          min-height: 45px;
+          position: relative;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          i {
+            &.far {
+              position: absolute;
+              font-size: 25px;
+              padding-left: 5px;
+              left: 15px;
+              top: 10px;
+              cursor: pointer;
+              &.fa-check-circle {
+                color: $todo-green;
+              }
+            }
+            &.delBtn {
+              position: absolute;
+              font-size: 25px;
+              right: 15px;
+              top: 10px;
+              &:hover {
+                color: red;
+              }
+            }
+          }
+          .text {
+            position: absolute;
+            font-size: 20px;
+            left: 60px;
+            top: 14px;
+            background-color: $bright-color;
+            max-width: 285px;
+            &.lineThrough {
+              text-decoration: line-through;
+              color: #aaa;
+            }
+          }
+        }
+      }
+      .add-item {
+        position: relative;
+        width: 360px;
+        height: 40px;
+        background-color: $bright-color;
+        padding: 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        position: fixed;
+        bottom: 105px;
+        i {
+          position: absolute;
+          font-size: 40px;
+          color: $todo-blue;
+        }
+        input {
+          position: absolute;
+          left: 60px;
+          height: 35px;
+          width: 300px;
+          background-color: transparent;
+          border: none;
+          font-size: 20px;
+          padding-left: 10px;
+          &::placeholder {
+            color: $todo-blue;
+          }
           &:focus {
             outline: none;
           }
@@ -92,404 +309,186 @@ body {
       }
     }
   }
+}
 
-  /* CLOCK */
-  #clock {
-    h2 {
-      position: relative;
-      display: block;
-      text-align: center;
-      margin: 10px 0;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.4em;
-      font-size: 0.8em;
-    }
-    // DATE
-    .date {
-      display: flex;
-      font-weight: 600;
-      font-size: 2em;
-      justify-content: center;
-      margin-bottom: 8px;
-      div {
-        padding: 8px;
-        text-transform: uppercase;
-      }
-    }
-
-    // TIME
-    .time {
-      display: flex;
-      color: $bright-color;
-      div {
-        position: relative;
-        margin: 0 5px;
-        -webkit-box-reflect: below 1px linear-gradient(transparent, #000);
-        span {
-          position: relative;
-          width: 100px;
-          height: 80px;
-          background-color: $accent-sky;
-          font-weight: 300;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 3em;
-          z-index: 10;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
-          &:nth-child(2) {
-            height: 30px;
-            font-size: 0.7em;
-            letter-spacing: 0.2em;
-            font-weight: 500;
-            z-index: 9;
-            box-shadow: none;
-            background-color: $darker-sky;
-            text-transform: uppercase;
-          }
-        }
-        &:nth-last-child(2) {
-          &.hide {
-            display: none;
-          }
-          span {
-            background-color: $bright-color;
-            &:nth-child(2) {
-              background-color: rgb(224, 227, 233);
-            }
-          }
-          color: $grey-color;
-        }
-        &:nth-child(3) {
-          span {
-            background-color: $accent-pink;
-            &:nth-child(2) {
-              background-color: $darker-pink;
-            }
-          }
-        }
-      }
-      button {
-        margin-left: 8px;
-        border-radius: 4px;
-        border: solid 1px #ccc;
-        -webkit-box-reflect: below 1px linear-gradient(transparent, #000);
-      }
-    }
-    .greeting {
-      display: flex;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 1.5em;
-      margin-top: 140px;
-    }
-  }
-
-  /* TO DO LIST */
-  #todo {
-    $todo-green: #6eb200;
-    $todo-blue: #4162f6;
-    display: none;
-    position: absolute;
-    .cotainer {
-      padding: 10px;
-      width: 380px;
-      margin: auto;
-      .header {
-        position: relative;
-        width: 380px;
-        height: 200px;
-        background-image: url(/images/toDoImg1.png);
-        background-size: 100%;
-        background-repeat: no-repeat;
-        border-radius: 15px 15px 0 0;
-        h1 {
-          position: absolute;
-          bottom: 20px;
-          left: 20px;
-          color: $bright-color;
-          font-size: 24px;
-          font-weight: 700;
-        }
-        .fa-times {
-          width: 30px;
-          height: 30px;
-          position: absolute;
-          right: 20px;
-          top: 20px;
-          font-size: 30px;
-          color: $bright-color;
-          &:hover {
-            cursor: pointer;
-            text-shadow: 1px 3px 5px rgb(83, 83, 83);
-            transition: 300ms;
-          }
-        }
-      }
-      .content {
-        width: 380px;
-        height: 350px;
-        max-height: 350px;
-        background-color: $bright-color;
-        overflow: auto;
-        #list {
-          .item {
-            width: 380px;
-            height: 45px;
-            min-height: 45px;
-            position: relative;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-            i {
-              &.far {
-                position: absolute;
-                font-size: 25px;
-                padding-left: 5px;
-                left: 15px;
-                top: 10px;
-                cursor: pointer;
-                &.fa-check-circle {
-                  color: $todo-green;
-                }
-              }
-              &.delBtn {
-                position: absolute;
-                font-size: 25px;
-                right: 15px;
-                top: 10px;
-                &:hover {
-                  color: red;
-                }
-              }
-            }
-            .text {
-              position: absolute;
-              font-size: 20px;
-              left: 60px;
-              top: 14px;
-              background-color: $bright-color;
-              max-width: 285px;
-              &.lineThrough {
-                text-decoration: line-through;
-                color: #aaa;
-              }
-            }
-          }
-        }
-        .add-item {
-          position: relative;
-          width: 360px;
-          height: 40px;
-          background-color: $bright-color;
-          padding: 10px;
-          border-top: 1px solid rgba(0, 0, 0, 0.2);
-          position: fixed;
-          bottom: 105px;
-          i {
-            position: absolute;
-            font-size: 40px;
-            color: $todo-blue;
-          }
-          input {
-            position: absolute;
-            left: 60px;
-            height: 35px;
-            width: 300px;
-            background-color: transparent;
-            border: none;
-            font-size: 20px;
-            padding-left: 10px;
-            &::placeholder {
-              color: $todo-blue;
-            }
-            &:focus {
-              outline: none;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  /* PLAYER */
-  #player {
-    $container-pink: #f5bfd8;
-    $button-pink: #f098c3;
-    position: absolute;
+/* PLAYER */
+#player {
+  $container-pink: #f5bfd8;
+  $button-pink: #f098c3;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  bottom: 20px;
+  right: 20px;
+  .music-container {
+    background-color: rgba($color: $container-pink, $alpha: 0.7);
+    border-radius: 15px 15px 0 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    bottom: 20px;
-    right: 20px;
-    .music-container {
-      background-color: rgba($color: $container-pink, $alpha: 0.7);
-      border-radius: 15px 15px 0 0;
+    height: 60px;
+    width: 325px;
+    padding: 12px;
+    transform: translate3d(0, 100%, 0);
+    transition: all 1s ease;
+    justify-content: flex-end;
+    .music-info {
       display: flex;
-      height: 60px;
-      width: 325px;
-      padding: 12px;
-      transform: translate3d(0, 100%, 0);
-      transition: all 1s ease;
+      flex-direction: column;
       justify-content: flex-end;
-      .music-info {
+      width: 180px;
+      .title {
+        color: $grey-color;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .artist {
+        color: #87848f;
+        font-size: 0.7rem;
+        margin-bottom: 10px;
+      }
+      .progressBar {
+        position: relative;
+        background-color: $bright-color;
+        cursor: pointer;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        width: 180px;
-        .title {
-          color: $grey-color;
-          font-size: 0.8rem;
-          font-weight: 700;
-          margin-bottom: 4px;
-        }
-        .artist {
-          color: #87848f;
-          font-size: 0.7rem;
-          margin-bottom: 10px;
-        }
-        .progressBar {
-          position: relative;
-          background-color: $bright-color;
-          cursor: pointer;
-          display: flex;
-          flex: 10;
-          flex-basis: 100%;
-          max-height: 5px;
-          position: relative;
-          transition: height 0.3s;
-          width: 100%;
+        flex: 10;
+        flex-basis: 100%;
+        max-height: 5px;
+        position: relative;
+        transition: height 0.3s;
+        width: 100%;
+        border-radius: 15px;
+        .progress {
+          background-color: $light-pink;
+          flex: 0;
+          flex-basis: 0%;
+          width: 50%;
           border-radius: 15px;
-          .progress {
-            background-color: $light-pink;
-            flex: 0;
-            flex-basis: 0%;
-            width: 50%;
-            border-radius: 15px;
-          }
         }
-      }
-      .music-time {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.4em;
-        padding-top: 4px;
-        color: $darker-pink;
-        font-weight: 600;
-      }
-      &.playing {
-        transform: translate3d(0, 0, 0);
-        transition: all 1s ease;
       }
     }
-    .player-controler {
-      position: relative;
-      background-color: $bright-color;
-      border-radius: 15px;
+    .music-time {
       display: flex;
-      justify-content: flex-end;
-      width: 380px;
-      padding: 10px;
-      box-shadow: 0px 15px 20px 0px rgb(83, 83, 83);
-      button {
-        height: 80px;
-        width: 80px;
-        cursor: pointer;
-        border: none;
-        background-color: transparent;
-        color: #dfdbe0;
-        margin: 0 5px;
-        border-radius: 15px;
-        position: relative;
-        &:hover,
-        &.playing {
-          color: $button-pink;
-        }
-        &.play {
-          span {
-            &.pause {
-              background-color: white;
-              position: absolute;
-              top: 23px;
-              height: 34px;
-              width: 10px;
-              display: block;
-              border-radius: 3px;
-              opacity: 0;
-              transition: all 0.5s ease;
-              &.left {
-                left: 0;
-              }
-              &.right {
-                right: 0;
-              }
+      justify-content: space-between;
+      font-size: 0.4em;
+      padding-top: 4px;
+      color: $darker-pink;
+      font-weight: 600;
+    }
+    &.playing {
+      transform: translate3d(0, 0, 0);
+      transition: all 1s ease;
+    }
+  }
+  .player-controler {
+    position: relative;
+    background-color: $bright-color;
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-end;
+    width: 380px;
+    padding: 10px;
+    box-shadow: 0px 15px 20px 0px rgb(83, 83, 83);
+    button {
+      height: 80px;
+      width: 80px;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      color: #dfdbe0;
+      margin: 0 5px;
+      border-radius: 15px;
+      position: relative;
+      &:hover,
+      &.playing {
+        color: $button-pink;
+      }
+      &.play {
+        span {
+          &.pause {
+            background-color: white;
+            position: absolute;
+            top: 23px;
+            height: 34px;
+            width: 10px;
+            display: block;
+            border-radius: 3px;
+            opacity: 0;
+            transition: all 0.5s ease;
+            &.left {
+              left: 0;
             }
-            i {
-              opacity: 1;
-              transition: opacity 0.5s ease;
-            }
-            &.playing i {
-              opacity: 0;
-              transition: all 0.5s ease;
+            &.right {
+              right: 0;
             }
           }
-          &.player {
-            span {
-              &.pause.left {
-                left: 25px;
-                opacity: 1;
-                transition: left 0.5s ease, opacity 0.8s ease;
-              }
-              &.pause.right {
-                right: 25px;
-                opacity: 1;
-                transition: right 0.5s ease, opacity 0.8s ease;
-              }
+          i {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+          }
+          &.playing i {
+            opacity: 0;
+            transition: all 0.5s ease;
+          }
+        }
+        &.player {
+          span {
+            &.pause.left {
+              left: 25px;
+              opacity: 1;
+              transition: left 0.5s ease, opacity 0.8s ease;
+            }
+            &.pause.right {
+              right: 25px;
+              opacity: 1;
+              transition: right 0.5s ease, opacity 0.8s ease;
             }
           }
         }
       }
-      .cover {
-        height: 130px;
-        width: 130px;
-        position: absolute;
-        top: -40px;
-        left: 15px;
+    }
+    .cover {
+      height: 130px;
+      width: 130px;
+      position: absolute;
+      top: -40px;
+      left: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.spin {
+        animation: spin 5s linear infinite;
+      }
+      .cover__img {
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+        transition: all 1s ease;
+        background-image: url(https://www.bensound.com/bensound-img/ukulele.jpg);
+        background-size: cover;
+        background-position: center;
         display: flex;
         align-items: center;
         justify-content: center;
-        &.spin {
-          animation: spin 5s linear infinite;
+        &.scale {
+          transform: scale(1.17);
+          transition: all 1s ease;
         }
-        .cover__img {
-          height: 110px;
-          width: 110px;
+        &::after {
+          content: "";
+          background-color: white;
+          height: 25px;
+          width: 25px;
           border-radius: 50%;
           transition: all 1s ease;
-          background-image: url(https://www.bensound.com/bensound-img/ukulele.jpg);
-          background-size: cover;
-          background-position: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          &.scale {
-            transform: scale(1.17);
-            transition: all 1s ease;
-          }
-          &::after {
-            content: "";
-            background-color: white;
-            height: 25px;
-            width: 25px;
-            border-radius: 50%;
-            transition: all 1s ease;
-          }
         }
       }
-      @keyframes spin {
-        100% {
-          transform: rotate(360deg);
-        }
+    }
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
       }
     }
   }
