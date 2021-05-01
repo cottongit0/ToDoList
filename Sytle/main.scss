@@ -346,6 +346,8 @@ body {
       justify-content: space-between;
       font-size: 0.4em;
       padding-top: 4px;
+      color: $darker-pink;
+      font-weight: 600;
     }
     &.playing {
       transform: translate3d(0, 0, 0);

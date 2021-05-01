@@ -225,14 +225,23 @@ progressBar.addEventListener("mousemove", (e) => mousedown && scrub(e));
 progressBar.addEventListener("mousedown", () => (mousedown = true));
 progressBar.addEventListener("mouseup", () => (mousedown = false));
 
+// 음악 시간
 const current = document.querySelector(".current-time");
 const duration = document.querySelector(".duration-time");
 
-function musicTime() {
+const musicTime = setInterval(() => {
   let curMin = Math.floor(audio.currentTime / 60);
   let curSec = Math.floor(audio.currentTime % 60);
   let durMin = Math.floor(audio.duration / 60);
   let durSec = Math.floor(audio.duration % 60);
 
-  let playProgress = (audio.currentTime / audio.duration) * 100;
-}
+  current.innerText = `${curMin < 10 ? "0" + curMin : curMin}:${
+    curSec < 10 ? "0" + curSec : curSec
+  }`;
+
+  duration.innerText = `${durMin < 10 ? "0" + durMin : durMin}:${
+    durSec < 10 ? "0" + durSec : durSec
+  }`;
+}, 1000);
+
+audio.addEventListener("play", musicTime);
